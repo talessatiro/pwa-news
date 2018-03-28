@@ -63,7 +63,7 @@
 
     function getNewsHtml(article) {
 
-        var cardContainer = $('<div>').addClass('col-md-3 col-xl-3');
+        var cardContainer = $('<div>').addClass('col-sm-12 col-md-4 col-xl-4');
         var card = $('<div>').addClass('card');
 
         card = addImage(card);
