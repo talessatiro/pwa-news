@@ -63,7 +63,7 @@
 
     function getNewsHtml(article) {
 
-        var cardContainer = $('<div>').addClass('col-sm-12 col-md-4 col-xl-4');
+        var cardContainer = $('<div>').addClass('col-sm-12 col-md-4 col-xl-4 mt-3');
         var card = $('<div>').addClass('card');
 
         card = addImage(card);
@@ -88,17 +88,17 @@
             return card.append(
                 $('<div>')
                     .addClass('card-body')
-                    .append($('<h5>').addClass('card-title').append(article.title))
+                    .append($('<h5>').addClass('card-title mt-2 mb-3').append(article.title))
                     .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
                         .append(moment(article.publishedAt).fromNow()))
-                    .append($('<p>').addClass('card-text').append(article.description))
+                    .append($('<p>').addClass('card-text hidden-md-down').append(article.description))
             );
         }
 
         function addBodyActions(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body')
+                    .addClass('card-body mx-auto')
                     .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button'))
                     .click(function () {
                         window.open(article.url, '_blank');
