@@ -63,7 +63,7 @@
 
     function getNewsHtml(article) {
 
-        var cardContainer = $('<div>').addClass('col-sm-12 col-md-4 col-xl-4 mt-3');
+        var cardContainer = $('<div>').addClass('col-xm-12 col-sm-6 col-md-4 col-lg-3 my-2');
         var card = $('<div>').addClass('card');
 
         card = addImage(card);
@@ -80,6 +80,13 @@
                         .attr('alt', article.title)
                         .addClass('card-img-top')
                 );
+            } else {
+                return card.append(
+                    $('<img>')
+                        .attr('src', '../../../assets/img/noimage.png')
+                        .attr('alt', article.title)
+                        .addClass('card-img-top')
+                );
             }
             return card;
         }
@@ -87,7 +94,7 @@
         function addBodyTitle(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body')
+                    .addClass('card-body pt-3 pl-3 pr-3 pb-5')
                     .append($('<h5>').addClass('card-title mt-2 mb-3').append(article.title))
                     .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
                         .append(moment(article.publishedAt).fromNow()))
@@ -98,13 +105,14 @@
         function addBodyActions(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body mx-auto')
+                    .addClass('card-body center-link mx-auto')
                     .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button'))
                     .click(function () {
                         window.open(article.url, '_blank');
                     })
             );
         }
+        
     };
 
     initializeNews();
