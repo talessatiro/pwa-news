@@ -1,8 +1,8 @@
 (function () {
     'use strict'
 
-    var CACHE_SHELL = 'pwa-news-shell-v1';
-    var CACHE_DATA = 'pwa-news-data-v1-api';
+    var CACHE_SHELL = 'pwa-news-shell-v2';
+    var CACHE_DATA = 'pwa-news-data-v2-api';
     var API = 'https://newsapi.org/v2/';
     var FILES_SHELL = [
         '/',
@@ -35,6 +35,25 @@
         event.waitUntil(
             self.caches.open(CACHE_SHELL).then(function(cache){
                 return cache.addAll(FILES_SHELL);
+            })
+        )
+    });
+
+    // First executed command when sw activated
+    self.addEventListener('activate', function(event){
+        var categoryList = ['pwa-news-data-v1-api-health', 'pwa-news-data-v1-api-sports', 
+                            'pwa-news-data-v1-api-entertainment', 'pwa-news-data-v1-api-technology'];
+        var cacheList = [CACHE_SHELL, CACHE_DATA];
+
+        cacheList.push(categoryList);
+
+        return event.waitUntil(
+            self.caches.keys().then(function(cacheNames){
+                return Promise.all(cacheNames.map(function(cacheName){
+                    if(cacheList.indexOf(cacheName) === -1){
+                        self.caches.delete(cacheName);
+                    }
+                }))
             })
         )
     });
