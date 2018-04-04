@@ -62,7 +62,6 @@
                         return response;
                     })
                 }).catch(function(){
-                    console.log(caches);
                     return caches.match(event.request);
                 })
             )
