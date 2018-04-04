@@ -2,16 +2,17 @@
     'use strict'
 
     var CACHE_SHELL = 'pwa-news-shell-v1';
-    var CACHE_DATA = 'pwa-news-data-v1';
+    var CACHE_DATA = 'pwa-news-data-v1-api';
     var API = 'https://newsapi.org/v2/';
     var FILES_SHELL = [
         '/',
         './assets/css/main.css',
         './libraries/bootstrap/bootstrap.min.css',
         './libraries/font-awesome/css/font-awesome.min.css',
-        './libraries/font-awesome/fonts/fontawesome-webfont.eot',
-        './libraries/font-awesome/fonts/fontawesome-webfont.ttf',
-        './libraries/font-awesome/fonts/fontawesome-webfont.woff',
+        './libraries/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0',
+        './libraries/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0',
+        './libraries/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0',
+        './libraries/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0',
         './app/api/api.js',
         './app/router/router.js',
         './app/modules/news/news.js',
@@ -19,8 +20,16 @@
         './libraries/tether/tether.min.js',
         './libraries/bootstrap/bootstrap.min.js',
         './libraries/moment/moment.min.js',
-        './assets/img/noimage.png'
+        './assets/img/noimage.png',
+        './assets/fonts/OpenSans-Light.ttf'
     ]; 
+
+    function getCategoryByUrl(url) {
+        var splitedUrl = url.split('category=');
+        var category = splitedUrl[1];
+        
+        return category;
+    };
 
     self.addEventListener('install', function(event){
         event.waitUntil(
@@ -46,11 +55,14 @@
             // Network First Strategy
             event.respondWith(
                 self.fetch(event.request).then(function(response){
-                    return caches.open(CACHE_DATA).then(function(cache){
+                    var category = getCategoryByUrl(event.request.url);
+                    var cacheDataName = category === '' ? CACHE_DATA : CACHE_DATA + '-' + category;
+                    return caches.open(cacheDataName).then(function(cache){
                         cache.put(event.request.url, response.clone());
                         return response;
                     })
                 }).catch(function(){
+                    console.log(caches);
                     return caches.match(event.request);
                 })
             )

@@ -34,6 +34,12 @@ header {
     background-color: #343a40!important;
 }
 
+ .navbar-light .navbar-nav .active {
+    border-bottom: 0px solid #dd5b4a;
+    border-width: 2px;
+    transition: border-width 0.1s linear;
+}
+
 .navbar-light .navbar-nav .active>.nav-link {
     color: #dd5b4a;
     font-weight: bold;
