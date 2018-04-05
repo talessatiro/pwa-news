@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>PWA NEWS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#da532c">
+    
 
     <!-- External Libs -->
     <link rel="stylesheet" href="./libraries/bootstrap/bootstrap.min.css">
@@ -12,6 +14,12 @@
 
     <!-- App Files -->
     <link rel="stylesheet" href="./assets/css/main.css">
+
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
+    <link rel="mask-icon" href="./assets/img/safari-pinned-tab.svg" color="#5bbad5">
 </head>
 
 <body>
@@ -20,6 +28,10 @@
             <a class="navbar-brand" title="PWA News" href="/">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <strong>PWA</strong> | News</a>
+
+            <button id="btn-install" type="button" aria-label="search" class="hidden">
+            </button>
+
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-container"
                 aria-controls="menu-container" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -86,14 +98,17 @@
     <!-- App Files -->
     <script src="./app/api/api.js"></script>
     <script src="./app/router/router.js"></script>
+    <script src="./app/support/install-banner.js"></script>
     <script src="./app/modules/news/news.js"></script>
     <script type="text/javascript">
         if('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.pwa.js').then(function(registration){
-                console.log('Registrado com scope: ', registration);
-            }).catch(function(error) {
-                console.error('Erro: ', error);
-            });
+            window.addEventListener('load', function(){
+                navigator.serviceWorker.register('sw.pwa.js').then(function(registration){
+                    console.log('Registrado com scope: ', registration);
+                }).catch(function(error) {
+                    console.error('Erro: ', error);
+                });
+            })
         }
     </script>
 
