@@ -5,9 +5,12 @@
     var btnInstall = $("#btn-install");
 
     window.addEventListener('beforeinstallprompt', function(event){
-        console.log('opa');
         eventInstall = event;
+
+        // Do not execute the prompt yet.
         event.preventDefault();
+
+        // Show the install button to show the prompt to the user.
         btnInstall.show();
     });
 
@@ -17,15 +20,14 @@
 
             eventInstall.userChoice.then(function(choiceResult){
                 if(choiceResult.outcome == "dismissed"){
-                    alert("Que pena!");
+                    // TODO if cancel
                 }else{
-                    alert("Que feliz!");
+                    // TODO if accepts
                 }
             });
 
             eventInstall = null;
             btnInstall.hide();
-
         }
     });
 })();

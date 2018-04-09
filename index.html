@@ -6,34 +6,31 @@
     <title>PWA NEWS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="msapplication-TileColor" content="#da532c">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
+    <link rel="mask-icon" href="/assets/img/safari-pinned-tab.svg" color="#5bbad5">
+
 
     <!-- External Libs -->
-    <link rel="stylesheet" href="./libraries/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./libraries/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/libraries/font-awesome/css/font-awesome.min.css">
 
     <!-- App Files -->
-    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
-    <link rel="manifest" href="./manifest.json">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/favicon-16x16.png">
-    <link rel="mask-icon" href="./assets/img/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="/manifest.json">
 </head>
 
-<body>
+<body id="body">
     <div class="container">
         <nav class="navbar navbar-toggleable-md navbar-light">
             <a class="navbar-brand" title="PWA News" href="/">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <strong>PWA</strong> | News</a>
 
-            <button id="btn-install" type="button" aria-label="search" class="hidden">
-            </button>
-
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-container"
-                aria-controls="menu-container" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-container" aria-controls="menu-container"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-md-center" id="menu-container">
@@ -55,6 +52,8 @@
                     </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
+                    <button id="btn-install" type="button" aria-label="search" class="fa fa-download hidden">
+                    </button>
                     <input id="search" class="form-control mr-sm-2" type="text" placeholder="Search">
                 </div>
             </div>
@@ -83,35 +82,26 @@
     <footer class="main-footer">
         <div class="container">
             <div class="pull-right hidden-xs">
-                <b>Version</b> 0.1.1
+                <b>Version</b> 1.0.0
             </div>
             <strong>PWA</strong> News
         </div>
     </footer>
 
     <!-- External Libs -->
-    <script src="./libraries/jquery/jquery-3.3.1.min.js"></script>
-    <script src="./libraries/tether/tether.min.js"></script>
-    <script src="./libraries/bootstrap/bootstrap.min.js"></script>
-    <script src="./libraries/moment/moment.min.js"></script>
+    <script src="/libraries/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/libraries/tether/tether.min.js"></script>
+    <script src="/libraries/bootstrap/bootstrap.min.js"></script>
+    <script src="/libraries/moment/moment.min.js"></script>
 
     <!-- App Files -->
-    <script src="./app/api/api.js"></script>
-    <script src="./app/router/router.js"></script>
-    <script src="./app/support/install-banner.js"></script>
-    <script src="./app/modules/news/news.js"></script>
-    <script type="text/javascript">
-        if('serviceWorker' in navigator) {
-            window.addEventListener('load', function(){
-                navigator.serviceWorker.register('sw.pwa.js').then(function(registration){
-                    console.log('Registrado com scope: ', registration);
-                }).catch(function(error) {
-                    console.error('Erro: ', error);
-                });
-            })
-        }
-    </script>
-
+    <script src="/app/api/api.js"></script>
+    <script src="/app/router/router.js"></script>
+    <script src="/app/support/install-banner.js"></script>
+    <script src="/app/modules/news/news.js"></script>
+    <script src="/app/support/push-config.js"></script>
+    <script src="/app/support/foreground-config.js"></script>
+    <script src="/sw.pwa.js"></script>
 </body>
 
 </html>
