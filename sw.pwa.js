@@ -106,6 +106,15 @@
         }
     });
 
+    self.addEventListener('notificationclick', function(event){
+        event.notification.close();
+
+        event.waitUntil(
+            // podemos colocar caminho relativo ou  url
+            clients.openWindow('/')
+        )
+    });
+
     // Push notification event.
     self.addEventListener('push', function (event) {
         var options = {
