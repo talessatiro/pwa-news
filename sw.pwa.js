@@ -6,23 +6,42 @@
     var API = 'https://newsapi.org/v2/';
     var FILES_SHELL = [
         '/',
-        './assets/css/main.css',
-        './libraries/bootstrap/bootstrap.min.css',
-        './libraries/font-awesome/css/font-awesome.min.css',
-        './libraries/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0',
-        './libraries/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0',
-        './libraries/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0',
-        './libraries/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0',
-        './app/api/api.js',
-        './app/router/router.js',
-        './app/modules/news/news.js',
-        './libraries/jquery/jquery-3.3.1.min.js',
-        './libraries/tether/tether.min.js',
-        './libraries/bootstrap/bootstrap.min.js',
-        './libraries/moment/moment.min.js',
-        './assets/img/noimage.png',
-        './assets/fonts/OpenSans-Light.ttf'
+        '/sw.pwa.js',
+        '/manifest.json',
+        '/assets/css/main.css',
+        '/libraries/bootstrap/bootstrap.min.css',
+        '/libraries/font-awesome/css/font-awesome.min.css',
+        '/libraries/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0',
+        '/libraries/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0',
+        '/libraries/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0',
+        '/libraries/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0',
+        '/app/api/api.js',
+        '/app/router/router.js',
+        '/app/modules/news/news.js',
+        '/app/support/foreground-config.js',
+        '/app/support/install-banner.js',
+        '/app/support/push-config.js',
+        '/libraries/jquery/jquery-3.3.1.min.js',
+        '/libraries/tether/tether.min.js',
+        '/libraries/bootstrap/bootstrap.min.js',
+        '/libraries/moment/moment.min.js',
+        '/assets/img/noimage.png',
+        '/assets/img/android-chrome-192x192.png',
+        '/assets/fonts/OpenSans-Light.ttf'
     ]; 
+
+    if('serviceWorker' in navigator && 'PushManager' in window) {
+        window.addEventListener('load', function(){
+            var pushNotificationConfig = new PushNotificationConfig();
+
+            navigator.serviceWorker.register('sw.pwa.js').then(function(registration){
+                console.log('Registrado com scope: ', registration);
+                pushNotificationConfig.registerUser(registration);
+            }).catch(function(error) {
+                console.error('Erro: ', error);
+            });
+        })
+    }
 
     function getCategoryByUrl(url) {
         var splitedUrl = url.split('category=');
@@ -85,5 +104,17 @@
                 })
             )
         }
+    });
+
+    // Push notification event.
+    self.addEventListener('push', function (event) {
+        var options = {
+            'body': event.data.text(),
+            'icon': '/assets/img/android-chrome-192x192.png',
+            'badge': '/assets/img/android-chrome-192x192.png'
+        };
+        event.waitUntil(
+            self.registration.showNotification('PWA News', options)
+        );
     });
 }());

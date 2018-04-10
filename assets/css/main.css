@@ -73,3 +73,12 @@ button {
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+#btn-install {
+    background: transparent;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
