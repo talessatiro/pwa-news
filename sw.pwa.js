@@ -11,6 +11,7 @@
         '/assets/css/main.css',
         '/libraries/bootstrap/bootstrap.min.css',
         '/libraries/font-awesome/css/font-awesome.min.css',
+        '/libraries/lazy-loading-xt/jquery.lazyloadxt.spinner.min.css',
         '/libraries/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0',
         '/libraries/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0',
         '/libraries/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0',
@@ -25,6 +26,7 @@
         '/libraries/tether/tether.min.js',
         '/libraries/bootstrap/bootstrap.min.js',
         '/libraries/moment/moment.min.js',
+        '/libraries/lazy-loading-xt/jquery.lazyloadxt.min.js',
         '/assets/img/noimage.png',
         '/assets/img/android-chrome-192x192.png',
         '/assets/fonts/OpenSans-Light.ttf'
