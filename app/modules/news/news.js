@@ -15,15 +15,6 @@
         activeMenu(category);
     }
 
-    function setTopNews(article) {
-        if (article) {
-            $('#top-news-title').text(article.title);
-            $('#top-news-description').text(article.description);
-            $('#top-news-image').attr('src', article.urlToImage).attr('alt', article.title);
-            $('#top-news-link').attr('href', article.url);
-        }
-    }
-
     $('.menu-list li').click(function () {
         var listElement = $(this);
         var state = listElement.find('a').data('state');
@@ -54,10 +45,15 @@
     function success(data) {
         var divNews = $('#news');
         divNews.empty();
-        setTopNews(data.articles[0]);
-        for (var i = 1; i < data.articles.length; ++i) {
+        for (var i = 0; i < data.articles.length; ++i) {
             divNews.append(getNewsHtml(data.articles[i]));
         }
+        initLazyLoadingImg();
+    }
+
+    function initLazyLoadingImg(){
+        // To initialize all elements matching img[data-src]
+        $(window).lazyLoadXT();
     }
 
 
@@ -76,15 +72,19 @@
             if (article.urlToImage) {
                 return card.append(
                     $('<img>')
-                        .attr('src', article.urlToImage)
+                        .attr('data-src', article.urlToImage)
                         .attr('alt', article.title)
+                        .attr('width', 100)
+                        .attr('height', 170)
                         .addClass('card-img-top')
                 );
             } else {
                 return card.append(
                     $('<img>')
-                        .attr('src', '/assets/img/noimage.png')
+                        .attr('data-src', '/assets/img/noimage.png')
                         .attr('alt', article.title)
+                        .attr('width', 100)
+                        .attr('height', 170)
                         .addClass('card-img-top')
                 );
             }
