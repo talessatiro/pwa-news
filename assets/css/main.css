@@ -34,7 +34,7 @@ header {
     background-color: #343a40!important;
 }
 
- .navbar-light .navbar-nav .active {
+.navbar-light .navbar-nav .active {
     border-bottom: 0px solid #dd5b4a;
     border-width: 2px;
     transition: border-width 0.1s linear;
@@ -56,6 +56,11 @@ img {
 
 button {
     cursor: pointer;
+}
+
+button.read-article-button {
+    color: #0051AD;
+    font-weight: 800;
 }
 
 #menu-container a {

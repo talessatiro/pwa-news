@@ -106,7 +106,7 @@
             return card.append(
                 $('<div>')
                     .addClass('card-body center-link mx-auto')
-                    .append($('<button>').append('Read Article').addClass('btn btn-link').attr('type', 'button'))
+                    .append($('<button>').append('Read Article').addClass('btn btn-link read-article-button').attr('type', 'button'))
                     .click(function () {
                         window.open(article.url, '_blank');
                     })
