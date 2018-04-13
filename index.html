@@ -75,6 +75,22 @@
         </section>
     </div>
 
+    <div id="internet-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="main-footer">
         <div class="container">
             <div class="pull-right hidden-xs">
@@ -98,6 +114,7 @@
     <script src="/app/modules/news/news.js"></script>
     <script src="/app/support/push-config.js"></script>
     <script src="/app/support/foreground-config.js"></script>
+    <script src="/app/support/offline-mode-config.js"></script>
     <script src="/sw.pwa.js"></script>
 </body>
 
