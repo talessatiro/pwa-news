@@ -22,6 +22,7 @@
         '/app/support/foreground-config.js',
         '/app/support/install-banner.js',
         '/app/support/push-config.js',
+        '/app/support/offline-mode-config.js',
         '/libraries/jquery/jquery-3.3.1.min.js',
         '/libraries/tether/tether.min.js',
         '/libraries/bootstrap/bootstrap.min.js',
