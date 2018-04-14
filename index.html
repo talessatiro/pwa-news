@@ -6,7 +6,7 @@
     <title>PWA NEWS</title>
     <meta name="Description" content="PWA News Application. Author: Tales Satiro e Dandara Navarro.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#da532c"/>
+    <meta name="theme-color" content="#da532c" />
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
@@ -31,7 +31,9 @@
             <a class="navbar-brand" title="PWA News" href="/">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 <strong>PWA</strong> | News</a>
-
+            <div>
+                <i id="battery-status" class="fa fa-battery-empty"></i>
+            </div>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-container" aria-controls="menu-container"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -115,7 +117,11 @@
     <script src="/app/modules/news/news.js"></script>
     <script src="/app/support/push-config.js"></script>
     <script src="/app/support/foreground-config.js"></script>
+<<<<<<< HEAD
     <script src="/app/support/offline-mode-config.js"></script>
+=======
+    <script src="/app/support/battery-config.js"></script>
+>>>>>>> Inserting Battery Level configuration.
     <script src="/sw.pwa.js"></script>
 </body>
 

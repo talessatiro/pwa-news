@@ -3,12 +3,14 @@ function PushNotificationConfig() {
     var publicKey = 'BIBwnau5twp4754x6NeLkEfMNXB8J9d7a710uur2pPTzsO_HamNDjOJlt7DleDYWI2PFIfbvcqOCi7Cm76DyCio';
 
     this.registerUser = function (serviceWorker) {
-        serviceWorker.pushManager.subscribe({
-            'userVisibleOnly': true,
-            'applicationServerKey': urlB64ToUint8Array(publicKey)
-        }).then(function (subscription) {
-            console.log(JSON.stringify(subscription));
-        });
+        if(serviceWorker.active) {
+            serviceWorker.pushManager.subscribe({
+                'userVisibleOnly': true,
+                'applicationServerKey': urlB64ToUint8Array(publicKey)
+            }).then(function (subscription) {
+                console.log(JSON.stringify(subscription));
+            });
+        }
     };
 
     function urlB64ToUint8Array(base64String) {
