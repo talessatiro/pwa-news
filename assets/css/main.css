@@ -30,10 +30,6 @@ header {
     font-weight: bold;
 }
 
-.bg-dark {
-    background-color: #343a40!important;
-}
-
 .navbar-light .navbar-nav .active {
     border-bottom: 0px solid #dd5b4a;
     border-width: 2px;
@@ -72,14 +68,8 @@ button.read-article-button {
     margin-bottom: 15px;
 }
 
-.my-flex-card .center-link {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-#btn-install {
+#btn-install,
+#btn-permission {
     background: transparent;
     border: none;
 }
@@ -119,12 +109,19 @@ button.read-article-button {
 /* CARD */
 
 .card {
-    font-size: 1em;
-    overflow: hidden;
-    padding: 0;
-    border: none;
-    border-radius: .28571429rem;
-    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFF;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
 
 .card-block {
@@ -154,6 +151,7 @@ button.read-article-button {
     clear: both;
     white-space: nowrap;
     margin-top: .5em;
+    padding-left: .1em;
     color: rgba(0, 0, 0, .68);
 }
 
@@ -171,38 +169,6 @@ button.read-article-button {
 .card-inverse .btn {
     border: 1px solid rgba(0, 0, 0, .05);
     height: 30px;
-}
-
-.profile {
-    position: absolute;
-    top: -12px;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-    margin: 0;
-    border: 1px solid #fff;
-    border-radius: 50%;
-}
-
-.profile-avatar {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.profile-inline {
-    position: relative;
-    top: 0;
-    display: inline-block;
-}
-
-.profile-inline ~ .card-title {
-    display: inline-block;
-    margin-left: 4px;
-    vertical-align: top;
 }
 
 .text-bold {
@@ -223,203 +189,44 @@ button.read-article-button {
     color: rgba(0, 0, 0, .87);
 }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #FFF;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
-  }
-  .card > hr {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .card > .list-group:first-child .list-group-item:first-child {
-    border-top-radius: 0.25rem;
-  }
-  .card > .list-group:last-child .list-group-item:last-child {
-    border-bottom-radius: 0.25rem;
-  }
-  
-  .card-body {
-    flex: 1 1 auto;
-    padding: 1.25rem;
-  }
-  
-  .card-title {
-    margin-bottom: 0.75rem;
-  }
-  
-  .card-subtitle {
-    margin-top: -0.375rem;
-    margin-bottom: 0;
-  }
-  
-  .card-text:last-child {
-    margin-bottom: 0;
-  }
-  
-  .card-link :hover {
-    text-decoration: none;
-  }
-  .card-link + .card-link {
-    margin-left: 1.25rem;
-  }
-  
-  .card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #FFF;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  }
-  .card-header:first-child {
-    border-radius: 0.25rem 0.25rem 0 0;
-  }
-  .card-header + .list-group .list-group-item:first-child {
-    border-top: 0;
-  }
-  
-  .card-footer {
-    padding: 0.75rem 1.25rem;
-    background-color:rgba(0,0,0,.03);
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-  }
-  .card-footer:last-child {
-    border-radius: 0 0 0.25rem 0.25rem;
-  }
-  
-  .card-header-tabs {
-    margin-right: -0.625rem;
-    margin-bottom: -0.75rem;
-    margin-left: -0.625rem;
-    border-bottom: 0;
-  }
-  
-  .card-header-pills {
-    margin-right: -0.625rem;
-    margin-left: -0.625rem;
-  }
-  
-  .card-img-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 0.75rem;
-  }
-  
-  .card-img {
-    width: 100%;
-    border-radius: 0.25rem;
-  }
-  
-  .card-img-top {
-    width: 100%;
-    border-top-radius: 0.25rem;
-  }
-  
-  .card-img-bottom {
-    width: 100%;
-    border-bottom-radius: 0.25rem;
-  }
-  
-  .card-deck {
-    display: flex;
-    flex-direction: column;
-  }
-  .card-deck .card {
-    margin-bottom: 1rem;
-  }
-  .card-deck :media-breakpoint-up(sm) {
-    flex-flow: row wrap;
-    margin-right: -1rem;
-    margin-left: -1rem;
-  }
-  .card-deck :media-breakpoint-up(sm) .card {
-    display: flex;
-    flex: 1 0 0%;
-    flex-direction: column;
-    margin-right: 1rem;
-    margin-bottom: 0;
-    margin-left: 1rem;
-  }
-  
-  .card-group {
-    display: flex;
-    flex-direction: column;
-  }
-  .card-group > .card {
-    margin-bottom: 0.75rem;
-  }
-  .card-group :media-breakpoint-up(sm) {
-    flex-flow: row wrap;
-  }
-  .card-group :media-breakpoint-up(sm) > .card {
-    flex: 1 0 0%;
-    margin-bottom: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card + .card {
-    margin-left: 0;
-    border-left: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:first-child {
-    border-right-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:first-child .card-img-top,
-  .card-group :media-breakpoint-up(sm) > .card:first-child .card-header {
-    border-top-right-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:first-child .card-img-bottom,
-  .card-group :media-breakpoint-up(sm) > .card:first-child .card-footer {
-    border-bottom-right-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:last-child {
-    border-left-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:last-child .card-img-top,
-  .card-group :media-breakpoint-up(sm) > .card:last-child .card-header {
-    border-top-left-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:last-child .card-img-bottom,
-  .card-group :media-breakpoint-up(sm) > .card:last-child .card-footer {
-    border-bottom-left-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:only-child {
-    border-radius: 0.25rem;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:only-child .card-img-top,
-  .card-group :media-breakpoint-up(sm) > .card:only-child .card-header {
-    border-top-radius: 0.25rem;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:only-child .card-img-bottom,
-  .card-group :media-breakpoint-up(sm) > .card:only-child .card-footer {
-    border-bottom-radius: 0.25rem;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:not(:first-child):not(:last-child):not(:only-child) {
-    border-radius: 0;
-  }
-  .card-group :media-breakpoint-up(sm) > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
-  .card-group :media-breakpoint-up(sm) > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
-  .card-group :media-breakpoint-up(sm) > .card:not(:first-child):not(:last-child):not(:only-child) .card-header,
-  .card-group :media-breakpoint-up(sm) > .card:not(:first-child):not(:last-child):not(:only-child) .card-footer {
-    border-radius: 0;
-  }
-  
-  .card-columns .card {
-    margin-bottom: 1rem;
-  }
-  .card-columns :media-breakpoint-up(sm) {
-    column-count: 4;
-    column-gap: 4;
-  }
-  .card-columns :media-breakpoint-up(sm) .card {
-    display: inline-block;
-    width: 100%;
-  }
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color:rgba(0,0,0,.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Font Icons */
+
+.fa-battery-4:before,
+.fa-battery:before,
+.fa-battery-full:before {
+  content: "\f240";
+}
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: "\f241";
+}
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: "\f242";
+}
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: "\f243";
+}
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: "\f244";
+}
+.fa-newspaper-o:before {
+  content: "\f1ea";
+}
+.fa-download:before {
+  content: "\f019";
+}
+.fa-bell:before {
+  content: "\f0f3";
+}
+
   
 
