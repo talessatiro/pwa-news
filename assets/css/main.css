@@ -112,14 +112,11 @@ button.read-article-button {
     background-color: #d15140;
 }
 
-/* TESTE */
-
-h5 {
-    font-size: 1.28571429em;
-    font-weight: 700;
-    line-height: 1.2857em;
-    margin: 0;
+.lazy-hidden{
+    background:url('/assets/img/loading.gif') 50% 50% no-repeat #eee
 }
+
+/* CARD */
 
 .card {
     font-size: 1em;
@@ -225,8 +222,6 @@ h5 {
 .meta a:hover {
     color: rgba(0, 0, 0, .87);
 }
-
-/* CARD */
 
 .card {
     position: relative;
