@@ -30,16 +30,16 @@
 
         switch (true) {
             case battery.level > 0 && battery.level <= 0.2:
-            batteryStatusIcon.addClass('fa-battery-empty battery-red');
+                batteryStatusIcon.addClass('fa-battery-empty battery-red');
                 break;
             case battery.level > 0.2 && battery.level <= 0.4:
-            batteryStatusIcon.addClass('fa-battery-quarter battery-red');
+                batteryStatusIcon.addClass('fa-battery-quarter battery-red');
                 break;
             case battery.level > 0.4 && battery.level <= 0.5:
-            batteryStatusIcon.addClass('fa-battery-half');
+                batteryStatusIcon.addClass('fa-battery-half');
                 break;
             case battery.level > 0.5 && battery.level <= 0.9:
-            batteryStatusIcon.addClass('fa-battery-three-quarters');
+                batteryStatusIcon.addClass('fa-battery-three-quarters');
                 break;
             case battery.level > 0.9 && battery.level <= 0.99:
                 batteryStatusIcon.addClass('fa-battery-full');
@@ -52,7 +52,7 @@
         setBatteryTitle(battery);
     };
 
-    function setBatteryTitle(battery){
+    function setBatteryTitle(battery) {
         var charging = battery.charging ? 'Charging' : 'Discharging';
         batteryStatusIcon.attr('title', battery.level * 100 + '% ' + charging);
     };
