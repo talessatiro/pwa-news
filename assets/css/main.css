@@ -12,7 +12,7 @@ body {
 }
 
 footer {
-    padding: 2.5rem 0;
+    padding: 0.5rem 0;
     color: #525252;
     text-align: center;
     background-color: #f9f9f9;
@@ -28,10 +28,6 @@ header {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
     font-size: 2.25rem;
     font-weight: bold;
-}
-
-.bg-dark {
-    background-color: #343a40!important;
 }
 
 .navbar-light .navbar-nav .active {
@@ -72,14 +68,8 @@ button.read-article-button {
     margin-bottom: 15px;
 }
 
-.my-flex-card .center-link {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-#btn-install {
+#btn-install,
+#btn-permission {
     background: transparent;
     border: none;
 }
@@ -87,3 +77,156 @@ button.read-article-button {
 .hidden {
     display: none;
 }
+
+#battery-status {
+    transform: rotate(-90deg);
+}
+
+#battery-charger {
+    font-size: 0.5em;
+}
+
+#battery-status.battery-red {
+    color: #dd5b4a;
+}
+
+#battery-status.battery-green {
+    color: #5C9A31;
+}
+
+.btn-danger {
+    background-color: #dd5b4a;
+}
+
+.btn-danger:hover {
+    background-color: #d15140;
+}
+
+.lazy-hidden{
+    background:url('/assets/img/loading.gif') 50% 50% no-repeat #eee
+}
+
+/* CARD */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFF;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  font-size: 1em;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+}
+
+.card-block {
+    font-size: 1em;
+    position: relative;
+    margin: 0;
+    height: 46%;
+    padding: 1em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: 170px;
+}
+
+.card-title {
+    font-size: 1.28571429em;
+    font-weight: 700;
+    line-height: 1.2857em;
+}
+
+.card-text {
+    clear: both;
+    white-space: nowrap;
+    margin-top: .5em;
+    padding-left: .1em;
+    color: rgba(0, 0, 0, .68);
+}
+
+.card-footer {
+    font-size: 1em;
+    position: static;
+    top: 0;
+    left: 0;
+    padding: .75em 1em;
+    color: rgba(0, 0, 0, .4);
+    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    background: #fff;
+}
+
+.card-inverse .btn {
+    border: 1px solid rgba(0, 0, 0, .05);
+    height: 30px;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.meta {
+    font-size: 1em;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .4);
+}
+
+.meta a:hover {
+    color: rgba(0, 0, 0, .87);
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color:rgba(0,0,0,.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Font Icons */
+
+.fa-battery-4:before,
+.fa-battery:before,
+.fa-battery-full:before {
+  content: "\f240";
+}
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: "\f241";
+}
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: "\f242";
+}
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: "\f243";
+}
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: "\f244";
+}
+.fa-newspaper-o:before {
+  content: "\f1ea";
+}
+.fa-download:before {
+  content: "\f019";
+}
+.fa-bell:before {
+  content: "\f0f3";
+}
+
+  
+

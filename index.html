@@ -6,7 +6,7 @@
     <title>PWA NEWS</title>
     <meta name="Description" content="PWA News Application. Author: Tales Satiro e Dandara Navarro.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#da532c"/>
+    <meta name="theme-color" content="#da532c" />
     <meta name="msapplication-TileColor" content="#da532c">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
@@ -17,7 +17,6 @@
     <!-- External Libs -->
     <link rel="stylesheet" href="/libraries/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/libraries/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libraries/lazy-loading-xt/jquery.lazyloadxt.spinner.min.css">
 
     <!-- App Files -->
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -30,8 +29,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" title="PWA News" href="/">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                <strong>PWA</strong> | News</a>
-
+                <strong>PWA</strong> <i id="battery-status" class="fa fa-battery-empty"></i> News</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu-container" aria-controls="menu-container"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -58,7 +56,7 @@
                     </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
-                    <button id="btn-permission" type="button" aria-label="search" class="fa fa-download hidden">
+                    <button id="btn-permission" type="button" aria-label="search" class="fa fa-bell hidden">
                     </button>
                     <button id="btn-install" type="button" aria-label="search" class="fa fa-download hidden">
                     </button>
@@ -116,6 +114,7 @@
     <script src="/app/support/push-config.js"></script>
     <script src="/app/support/foreground-config.js"></script>
     <script src="/app/support/offline-mode-config.js"></script>
+    <script src="/app/support/battery-config.js"></script>
     <script src="/sw.pwa.js"></script>
 </body>
 

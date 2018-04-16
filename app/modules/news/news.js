@@ -59,8 +59,8 @@
 
     function getNewsHtml(article) {
 
-        var cardContainer = $('<div>').addClass('col-xm-12 col-sm-6 col-md-4 col-lg-3 my-2');
-        var card = $('<div>').addClass('card');
+        var cardContainer = $('<div>').addClass('col-sm-6 col-md-6 col-lg-3 mt-4');
+        var card = $('<div>').addClass('card card-inverse card-info');
 
         card = addImage(card);
         card = addBodyTitle(card);
@@ -74,8 +74,6 @@
                     $('<img>')
                         .attr('data-src', article.urlToImage)
                         .attr('alt', article.title)
-                        .attr('width', 100)
-                        .attr('height', 170)
                         .addClass('card-img-top')
                 );
             } else {
@@ -83,8 +81,6 @@
                     $('<img>')
                         .attr('data-src', '/assets/img/noimage.png')
                         .attr('alt', article.title)
-                        .attr('width', 100)
-                        .attr('height', 170)
                         .addClass('card-img-top')
                 );
             }
@@ -94,19 +90,18 @@
         function addBodyTitle(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body pt-3 pl-3 pr-3 pb-5')
-                    .append($('<h5>').addClass('card-title mt-2 mb-3').append(article.title))
-                    .append($('<h6>').addClass('card-subtitle mb-2 text-muted')
-                        .append(moment(article.publishedAt).fromNow()))
-                    .append($('<p>').addClass('card-text hidden-md-down').append(article.description))
+                    .addClass('card-block')
+                    .append($('<h5>').addClass('card-title mt-3').append(article.title))
             );
         }
 
         function addBodyActions(card) {
             return card.append(
                 $('<div>')
-                    .addClass('card-body center-link mx-auto')
-                    .append($('<button>').append('Read Article').addClass('btn btn-link read-article-button').attr('type', 'button'))
+                    .addClass('card-footer row')
+                    .append($('<h6>').addClass('card-text col-6 col-sm-6 col-lg-6')
+                    .append(moment(article.publishedAt).fromNow()))
+                    .append($('<button>').append('Read Article').addClass('btn btn-danger col-6 col-sm-6 col-lg-6 btn-sm').attr('type', 'button'))
                     .click(function () {
                         window.open(article.url, '_blank');
                     })
